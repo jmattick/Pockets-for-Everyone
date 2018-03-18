@@ -1,0 +1,272 @@
+<% include ../partials/header %>
+
+ 
+        
+<script>
+        //prefill 
+      
+           var priceform = document.getElementById("price-form");
+           var priceradios = document.getElementsByClassName("priceradio");
+           
+           
+        
+    
+
+          
+        
+        //functions
+
+      function showAddress(){
+            document.getElementById("address").style.display = "block";
+      }
+      function hideAddress(){
+         
+          document.getElementById("address").style.display = "none";
+      }
+     function selectLoc(selected){
+        var element  = document.getElementById(selected);
+     
+       var locform = document.getElementById("loc-form");
+       locform.value = element.value;
+       var x = document.getElementsByClassName("locradio");
+          for (var i = 0; i<x.length; i++){
+              if(x[i].id === element.id){
+                   x[i].classList.add("selected");
+              } else {
+                  x[i].classList.remove("selected");
+              }
+          }
+       
+       
+    }
+      
+    function selectPrice(selected){
+        var element  = document.getElementById(selected);
+     
+       var priceform = document.getElementById("price-form");
+       priceform.value = element.value;
+       var x = document.getElementsByClassName("priceradio");
+          for (var i = 0; i<x.length; i++){
+              if(x[i].id === element.id){
+                   x[i].classList.add("selected");
+              } else {
+                  x[i].classList.remove("selected");
+              }
+          }
+       
+       
+    }
+    
+    
+    function selectTile(selected){
+          var element  = document.getElementById(selected);
+          var imageUrl = element.src;
+          document.getElementById('image').value = imageUrl;
+          var x = document.getElementsByClassName("tiles");
+          for (var i = 0; i<x.length; i++){
+              if(x[i].id === element.id){
+                   x[i].classList.add("selected");
+              } else {
+                  x[i].classList.remove("selected");
+              }
+          }
+            
+          
+      }
+   
+      
+</script>
+<%
+        var tileItems = [
+          "https://images.unsplash.com/photo-1484502249930-e1da807099a5?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=7c9db1be256568d6d217622335828029",
+          "https://images.unsplash.com/photo-1509067917181-3ec8d8ef5170?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=fd9a57ad745e5b5e7ca56e8d8372727f",
+          "https://images.unsplash.com/photo-1469329989238-48310798c014?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=e41046c006ab76c090325720b52a2133",          
+          "https://images.unsplash.com/photo-1510113094577-801ea4488673?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=c4551d7a484eb12b1bd35e37e61f0261",
+          "https://images.unsplash.com/photo-1507702553912-a15641e827c8?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=3d741add7a684514215e9c5fad4677c4",
+          "https://images.unsplash.com/photo-1505964862204-b1eff3cc4536?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=83a3304b9ae5ac5b83e135be5f96920c",
+          "https://images.unsplash.com/photo-1504651370061-322a2e6d1768?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=48ded1ae38694fade6e57d80d4f8280f",
+          "https://images.unsplash.com/photo-1468640153821-5495ed50c02d?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=772739837bbf794befd5f647e148769c",
+          "https://images.unsplash.com/photo-1480525100650-e920a969d9f4?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=f5a4b1a4d196f5218c551ea4b7092e09",
+          "https://images.unsplash.com/photo-1436476549056-cdf7e8f3d8e3?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=6f7268e1347da3f56b01d333d019b7f9",
+          "https://images.unsplash.com/photo-1516031068-d61e87663edc?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=a4181e053ce598653b3c27113f1f4cfc",
+          "https://images.unsplash.com/photo-1444401045234-4a2ab1f645c0?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=05267286829a0a293f83e1e71224f3f1",
+          "https://images.unsplash.com/photo-1485125639709-a60c3a500bf1?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=822fe53c9cf643a358815e86b3928a37",
+          "https://images.unsplash.com/photo-1472168087442-46b12008e7c7?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=abe722459dbfdfdc63c98d6b5a1db66e",
+          "https://images.unsplash.com/photo-1466027294893-61e41c365431?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=56b8f64511cf485835f6c28236ce2274",
+          "https://images.unsplash.com/photo-1487704645551-52a0ce1453f0?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=689606e3de952156e11ebd07cd33037a",
+          "https://images.unsplash.com/photo-1473409872320-f3f1bb4e89c0?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=ea07b158f5acd52f31dd9866e0ff54ca",
+          "https://images.unsplash.com/photo-1461595520627-42e3c83019bc?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=5f74997d0bda23d9b0b322bcdb943335",
+          "https://images.unsplash.com/photo-1493655430214-3dd7718460bb?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=035fdea6196550629fa6c57616cd5e87",
+          "https://images.unsplash.com/photo-1510502529292-40f6dfae679b?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=1f4a168552318716af5950eff836a0c2",
+          "https://images.unsplash.com/photo-1496179767723-3e2c77660f6b?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=5dff21ac0651b54eed00c6f3488b1c07",
+          "https://images.unsplash.com/photo-1492627223639-6e980361988c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=286f0759844df061d268889fccb309f4",
+          "https://images.unsplash.com/photo-1508386230026-b829a7ecb06e?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=67f3501187b118c6c2288127bb821211",
+          "https://images.unsplash.com/photo-1477901492169-d59e6428fc90?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=714df483489c0ffbe76e1780c921f251",
+          "https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=0d180ff064b2f714fe2c2b2ea12efd51",
+          "https://images.unsplash.com/photo-1470309864661-68328b2cd0a5?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=c49ae6f0d269f5f1c01bc43510ec6dc3",
+          "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=829ddf78b40437e29ff4cfaf33dcc683",
+          "https://images.unsplash.com/photo-1456405653044-f908acd472ca?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=a8b20990ea0ad235ba0a090923b2a867",
+          "https://images.unsplash.com/photo-1495380802461-f7ca08f6595e?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=9839726211b364c39c40c67aab53f77a",
+          "https://images.unsplash.com/photo-1456851428068-615f0e1a06b3?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=ca3464fe8a1e2b76bf49c79d9ef8b360"
+          
+          ];
+                                     %>
+    <div class = "row">
+        <h1 style = "text-align: center;">Edit <%=vendor.name%></h1>
+            <div class = "mob-form" style = "width: 40%; margin: 30px auto;">
+                
+                <!--Start new stuff-->
+                        <form action = "/vendors/<%=vendor._id%>?_method=PUT" method = "POST">
+                         <div class = "form-group">
+                             <label for="vendor[name]">Name</label>
+                            <input class = "form-control" type = "text" maxlength="80" name = "vendor[name]"  value = "<%=vendor.name%>">
+                         </div>
+                         
+                         <div class = "form-group">
+                            <label for="image">Select image below or copy unsplash image Url</label>
+                            <input class="form-control" type="text" name="vendor[image]" id="image" pattern="^https:\/\/images\.unsplash\.com\/.*" title="Only images from images.unsplash.com allowed. See link below for instructions." placeholder="https://images.unsplash.com/..." value="<%= vendor.image %>">
+                            <small>Click <a href="https://youtu.be/Bn3weNRQRDE">here</a> for tutorial on how to copy unsplash urls.</small>
+                            
+                         </div>
+                
+                         
+                         <!--Start Image selection-->
+                         <div class = "form-group">
+                             <label for="img-tiles">Image</label>
+                             <div id = "img-tiles" class = "image-wrap">
+                                 <ul>
+                                     
+                                     
+                                     
+                                     
+                                    <%for(var i = 0; i< tileItems.length; i++){%>
+                                        <%if (tileItems[i] === vendor.image ){ %> 
+                                          
+                                            <li><img class = "tiles selected"  id = "tile<%=i%>" onClick = "selectTile(this.id)" src ="<%=tileItems[i]%>" /></li>
+                                            <% } else { %>
+                                                    <li><img class = "tiles"  id = "tile<%=i%>" onClick = "selectTile(this.id)" src ="<%=tileItems[i]%>" /></li>
+                                                    <% } %>
+                                        
+                                   <% } %>
+                                    
+                                 </ul>
+                             </div>
+                             <small>To reduce moderation load, only preselected images are available</small>
+                         </div>
+                         
+                         
+                         
+                         
+                         
+                         <!--End Image selection-->
+                        
+                         <div class = "form-group">
+                            <label for="vendor[url]">Vendor Url</label>
+                            <input class="form-control" type="text" name="vendor[url]" value = "<%=vendor.url%>">
+                            <!--<small>Click <a href="https://youtu.be/Bn3weNRQRDE">here</a> for tutorial on how to copy unsplash urls.</small>-->
+                            
+                         </div>
+                        
+                        
+                        
+                         
+                         <div class = "form-group">
+                             <label for="vendor[description]">Description</label>
+                            <textarea class = "form-control" type = "text" name = "vendor[description]" placeholder = "description" ><%=vendor.description%></textarea>
+                         </div>
+                         <!--//start price logic-->
+                         <div class = "form-group">
+                                 <label for="vendor[price]">Current Price</label>
+                                <input class = "form-control"  id = "price-form" type = "text" name = "vendor[price]" value = "<%=vendor.price%>" readonly/>
+                             </div>
+                         
+                          <div class = "form-group price-range">
+                            <!--<input class = "form-control" type = "number" name = "vendor[price]" placeholder = "price" min = "0.01" step="0.01">-->
+                            
+                            
+                            
+                            <div class = "row">                            
+                                <div class = "col-sm-12">
+                                    <label id = "type-label" for="vendor[price]" > Edit Price:</label>
+                                    
+                                </div>
+                                <div class = "row radio-select">
+                                <div class = "col-sm-4 col-xs-12">
+                                    
+                            
+                                    <input class = "priceradio" type='radio' value='$' onClick = "selectPrice(this.id)" name='vendor-price' id='radio1'/>
+                                    <label for='radio1'>$</label>
+                                </div>
+                                <div class = "col-sm-4 col-xs-12">
+                                    <input class = "priceradio" type='radio'  value='$$' onClick = "selectPrice(this.id)" name='vendor-price'  id='radio2'/>
+                                    <label for='radio2'>$$</label>
+                                </div>
+                                <div class = "col-sm-4 col-xs-12">
+                                    <input class = "priceradio" type='radio' value='$$$' onClick = "selectPrice(this.id)" name='vendor-price'  id='radio3'/>
+                                    <label for='radio3'>$$$</label>
+                                </div>
+                                </div>
+                            </div>
+                            
+                            
+                         </div>
+                         
+                         
+                         <!--Start location logic here-->
+                          <div class = "form-group">
+                                 <label for="vendor[p]">Current location type</label>
+                                <input class = "form-control"  id = "loc-form" type = "text" name = "vendor[p]" value = "<%=vendor.p%>" readonly/>
+                             </div>
+                         
+                         
+                         <div class = "form-group local">
+                          
+                            <div class = "row">
+                                <div class = "col-sm-12">
+                                   
+                                    <label id = "type-label" for="vendor[p]">Edit Location Type:</label>
+                                    
+                                </div>
+                                <div class = "row radio-select">
+                                <div class = "col-sm-4 col-xs-12">
+                                    <input class = "locradio" type='radio' onClick = "hideAddress(), selectLoc(this.id)" value='online' name='vendor-p' id='onl'/>
+                                    <label for='onl'>Online</label>
+                                </div>
+                                <div class = "col-sm-4 col-xs-12">
+                                    <input class = "locradio" type='radio'  onClick = "hideAddress(), selectLoc(this.id)" value='chain' name='vendor-p'  id='cha'/>
+                                    <label for='cha'>Chain</label>
+                                </div>
+                                <div class = "col-sm-4 col-xs-12" >
+                                    <input class = "locradio" type='radio' onClick = "showAddress(), selectLoc(this.id)"   value='local' name='vendor-p'  id='loc'/>
+                                    <label for='loc'>Local</label>
+                                </div>
+                                </div>
+                            </div>
+                         </div>
+                          
+                         
+                         <div class="form-group" id = "address" >
+                             <label for="vendor[location]">Location</label>
+                            <input class="form-control" type="text" name="vendor[location]" id="autocomplete"  value = "<%=vendor.location%>">
+                        </div>
+                        
+                        
+                       
+                         <div class = "form-group">
+                            <button class = "btn btn-lg btn-primary btn-block">Submit!</button>
+                        </div>
+                    </form>
+                <a href = "/vendors">Go Back</a>
+            
+                
+                
+                <!--End new stuff-->
+     
+            </div>
+        
+    </div>
+    
+    
+<% include ../partials/autocomplete %>
+
+<% include ../partials/footer %>

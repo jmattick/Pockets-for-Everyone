@@ -1,0 +1,42 @@
+<% include ../partials/header%>
+
+<div class = "container">
+    <h3>User Profile</h3>
+    <div class = "row">
+        <div class = "col-md-4">
+            <h1><%=user.username%></h1>
+        </div>
+        <div class = "col-md-8">
+            <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+                <% vendors.forEach(function(vendor){ %>
+                    
+                        
+                    
+                    <div class = "col-md-4">
+                        <div class = "thumbnail" >
+                        <img src = "<%=vendor.image %>">
+                        <div class = "caption">
+                             <h4><%=vendor.name%></h4>
+                        </div>
+                        <p>
+                            <a href = "/vendors/<%=vendor._id%>" class  = "btn btn-primary">More Info</a>
+                        </p>
+                    </div>
+                    </div>
+                    
+                    
+                 <%  }) %>
+                 </div>
+                
+           
+           
+        </div>
+    </div>
+</div>
+
+
+
+
+ 
+
+<% include ../partials/footer%>

@@ -1,0 +1,215 @@
+body{
+    overflow-wrap: break-word;
+}
+.jumbotron{
+    background: #e96443;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(left, #904e95, #e96443);
+    background: -moz-linear-gradient(left, #904e95, #e96443);
+    background: -o-linear-gradient(left, #904e95, #e96443);
+    background: linear-gradient(to right, #904e95, #e96443);  /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    
+    -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    color: white;
+}
+.thumbnail img {
+    width: 100%;
+}
+.thumbnail{
+    padding: 0;
+}
+.thumbnail .caption-full {
+    padding: 9px;
+}
+.inline-form {
+    display: inline;
+}
+a .inline-form {
+    padding: 5px;
+}
+
+
+.radio-select{
+    text-align: center;
+}
+.image-wrap {
+    background-color: #fff;
+    width: 100%;
+    height: 300px;
+    overflow: scroll;
+    overflow-x: hidden;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+}
+.hidden {
+    display: none;
+}
+.report-score{
+   
+    color: red;
+    border: solid red 2px;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+}
+#img-tiles{
+    display:flex;
+    flex-wrap: wrap;
+}
+#img-tiles li {
+    list-style: none;
+    display: inline;
+    
+}
+#img-tiles img{
+    width: 44%;
+    height: auto;
+    margin: 5px;
+}
+.tiles:hover {
+    border: 6px solid pink;
+}
+
+.selected {
+    border: 4px solid pink;
+}
+
+#address{
+    display: none;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+}
+#div-alt {
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+}
+#map-alt {
+ 
+    height: 400px;
+    width: auto;
+    overflow: hidden;
+
+}
+
+.price-range input {
+    visibility:hidden;
+      border: 2px solid black;
+}
+.price-range label {
+
+    cursor: pointer;
+     color: gray;
+}
+.price-range input:checked + label {
+    color: green;
+}
+
+.local input {
+    visibility:hidden;
+      border: 2px solid black;
+     
+}
+.local label {
+    cursor: pointer;
+    color: gray;
+}
+.local input:checked + label {
+    color: green;
+}
+#type-label{
+    color: black;
+}
+.red {
+    color: red;
+}
+
+#fuzzy-input {
+    opacity: 0.7;
+    width: auto;
+    float: left;
+}
+#fuzzy-button {
+     opacity: 0.7;
+     width: auto;
+     margin-left: 2px;
+     float: left;
+     
+}
+#com-report{
+    margin-left: 15px;
+}
+
+.article .thumbnail {
+    padding: 20px;
+}
+
+.thumbnail h1 a {
+    color: black;
+}
+.extra {
+    margin-bottom: 20px;
+}
+
+#search-container {
+    padding: 0;
+    
+    
+}
+#search-container .col-xs-12 {
+    padding: 0;
+}
+
+.del-wrap{
+    margin-top: 10px;;
+    padding: 10px;
+    border-radius: 2px;
+}
+
+#new-com {
+    margin-top: 20px;
+}
+.edit-com{
+    margin-top: 20px;
+}
+.sub-edit {
+    float: left;
+    margin-right: 5px;
+}
+.com-well{
+    background-color: white;
+}
+.g-recaptcha{
+    margin-bottom: 10px;
+}
+.message{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.extra-padding{
+    padding-bottom: 40px;
+}
+
+@media (max-width: 680px) { 
+    .mob-form{
+        
+    width: 90% !important;
+    
+    }
+    .extra-padding{
+        padding-bottom: 60px;
+    }
+   
+}

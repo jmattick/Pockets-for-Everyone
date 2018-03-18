@@ -1,0 +1,34 @@
+<% include partials/header %>
+<a class = "btn btn-default" href = "/message">See Messages</a>
+    
+   <h1>Why we can't have nice things:</h1>
+    <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <%vendors.forEach(function(vendor){%>
+        
+                <div id = "<%=vendor._id%>" class = "col-md-3 col-sm-6">
+                    <div class = "thumbnail" >
+                        <img src = "<%=vendor.image %>">
+                        <div class = "caption">
+                             <h4><%=vendor.name%></h4>
+                            
+                             <% if(currentUser && currentUser.isAdmin && vendor.reportedCount) { %>
+                             <h4 class = "pull-right report-score"><%=vendor.reportedCount%></h4>
+                            <% } %>
+                            <% if(currentUser && currentUser.isAdmin && vendor.reportedComment) { %>
+                             <p class = "red">Comments reported</p>
+                            <% } %>
+                            
+                            
+                             
+                        </div>
+                        <p>
+                            <a href = "/vendors/<%=vendor._id%>" class  = "btn btn-primary">More Info</a>
+                        </p>
+                    </div>
+                </div>
+
+        <% }); %>
+    </div>
+
+
+<% include partials/footer %>

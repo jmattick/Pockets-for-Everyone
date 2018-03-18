@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+
+<h1>Message</h1>
+<%if(message.resolved === true){%>
+<div class = "alert alert-success message">
+    <h4><%=message.name%></h4>
+    <p><%=message.email%></p>
+    <p class = "pull-right"><%=message.createdAt%></p>
+    <p><%=message.text%></p>
+    
+</div>
+<% } else { %>
+<div class = "alert alert-danger message">
+    <h4><%=message.name%></h4>
+    <p><%=message._id%></p>
+    <p><%=message.email%></p>
+    <p><%=message.resolved%></p>
+    <p class = "pull-right"><%=message.createdAt%></p>
+    <p><%=message.text%></p>
+    <a class = "btn btn-xs btn-success pull-right">Resolve</a>
+    
+                    <form action = "/message/<%=message._id%>?_method=PUT" method = "POST">
+                         
+                         
+                         <div class = "form-group">
+                            <button class = "btn btn-lg btn-primary btn-block">Resolve</button>
+                        </div>
+                    </form>
+    
+</div>
+<% } %>
+
+<% include ../partials/footer %>

@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+
+
+    <div class = "row">
+        <h1 style = "text-align: center;">Send message to Admin</h1>
+            <div class = "mob-form" style = "width: 30%; margin: 30px auto;">
+               
+                    <form action = "/message/new" method = "POST">
+                        <div class = "form-group">
+                             <input class = "form-control" type = "text" name = "message[name]" placeholder = "name"></input>
+                         </div>
+                        <div class = "form-group">
+                             <input class = "form-control" type = "email" name = "message[email]" placeholder = "email"></input>
+                         </div>
+                         <div class = "form-group">
+                             <textarea maxlength = "750" class = "form-control" type = "text" name = "message[text]" placeholder = "message text"></textarea>
+                         </div>
+                         
+                         <div class = "form-group">
+                            <button class = "btn btn-lg btn-primary btn-block">Send!</button>
+                        </div>
+                    </form>
+                <a href = "/about">Go Back</a>
+            </div>
+        
+    </div>
+
+
+<% include ../partials/footer %>

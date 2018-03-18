@@ -1,0 +1,23 @@
+<% include ../partials/header %>
+
+<h1>Are you sure you want to report <em><%=comment.author.username%></em>?</h1>
+
+<form action = "/vendors/<%=vendorId%>/comments/<%=comment._id%>/report?_method=PUT" method = "POST">
+                         <div class = "form-group">
+                             <label for="comment[text]">Comment</label>
+                            <input class = "form-control" type = "text" maxlength="80" name = "vendor[name]"  value = "<%=comment.text%>" readonly>
+                         </div>
+                         <div class = "hidden form-group">
+                             <label for="comment[reportedBy]">User</label>
+                            <input class = "form-control" type = "text" maxlength="80" name = "comment[reportedBy]"  value = "<%=user._id%>" readonly>
+                         </div>
+                         <div class = "hidden form-group">
+                             <label for="comment[reportedCount]">Count</label>
+                            <input class = "form-control" type = "text" maxlength="80" name = "comment[reportedCount]"  value = "<%=comment.reportedCount +1%>" readonly>
+                         </div>
+                         <div class = "form-group">
+                            <button class = "btn btn-lg btn-danger btn-block">Report Comment</button>
+                        </div>
+</form>
+
+<% include ../partials/footer %>

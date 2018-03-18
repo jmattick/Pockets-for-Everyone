@@ -1,0 +1,37 @@
+<% include ../partials/header %>
+
+<h1>Messages</h1>
+<a class = "btn btn-default" href = "/message/unresolved">Unresolved Messages</a>
+<a class = "btn btn-default" href = "/message">All Messages</a>
+
+<%message.reverse().forEach(function(message){%>
+<%if(message.resolved){%>
+<div class = "alert alert-success message">
+    <h4>Name: <%=message.name%></h4>
+    <p>Email: <%=message.email%></p>
+    <p>Username: <em><%=message.author.username%></em></p>
+    <p class = "pull-right"><%=moment(message.createdAt).fromNow()%></p>
+    <p class = "well"><%=message.text%></p>
+    
+</div>
+<% } else { %>
+<div class = "alert alert-danger message">
+    <h4>Name: <%=message.name%></h4>
+     <form class = "pull-right" action = "/message/<%=message._id%>?_method=PUT" method = "POST">
+                         <div class = "form-group">
+                            <button class = "btn btn-xs btn-primary">Resolve</button>
+                        </div>
+                    </form>
+    <p>Email: <%=message.email%></p>
+    <p>Username: <em><%=message.author.username%></em></p>
+    <p class = "pull-right"><%=moment(message.createdAt).fromNow()%></p>
+    <p class = "well"><%=message.text%></p>
+    
+                   
+    
+</div>
+<% } %>
+
+<% }); %>
+
+<% include ../partials/footer %>
