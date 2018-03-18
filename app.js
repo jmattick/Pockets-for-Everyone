@@ -18,7 +18,12 @@ var commentRoutes = require("./routes/comments"),
     messageRoutes = require("./routes/messages");
 
 //seedDB(); //seed the database
-mongoose.connect("mongodb://localhost/pockets");
+mongoose.connect(process.env.DATABASEURL);
+//c9 
+//"mongodb://localhost/pockets"
+//mLab
+//mongodb://<dbuser>:<dbpassword>@ds117759.mlab.com:17759/pockets
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname+"/public"));
