@@ -18,7 +18,10 @@ var commentRoutes = require("./routes/comments"),
     messageRoutes = require("./routes/messages");
 
 //seedDB(); //seed the database
-mongoose.connect(process.env.DATABASEURL);
+mongoose.connect(process.env.DATABASEURL)
+    .then(() => console.log(`Database connected at ${process.env.DATABASEURL}`))
+    .catch(err => console.log(`Database connection error: ${err.message}`));
+
 //c9 
 //"mongodb://localhost/pockets"
 //mLab
