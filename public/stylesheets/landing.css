@@ -42,7 +42,6 @@ body{
 }
 .slideshow li:nth-child(2) { 
   background-image: url(https://images.unsplash.com/photo-1445052617869-096db75b4820?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=3847cdcbb1d26d06b395c54917d3c32f&auto=format&fit=crop&w=600&q=60);
-  /*https://images.unsplash.com/photo-1485331129317-1717811a2b75?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9&s=4cc6e15e63413a94dfb59a1c275c2219);*/
   animation-delay: 10s; 
 }
 .slideshow li:nth-child(3) { 

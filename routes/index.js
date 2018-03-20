@@ -4,9 +4,6 @@ var middleware = require("../middleware");
 var passport = require("passport");
 var User = require("../models/user");
 var Vendor = require("../models/vendor");
-// var async = require("async");
-// var nodemailer = require("nodemailer");
-// var crypto = require("crypto");
 var https = require('https');
 //Root Route
 router.get("/", function(req, res){
@@ -20,16 +17,10 @@ router.get("/register", function(req, res){
 
 //handle sign up logic
 router.post("/register", middleware.usernameToLowerCase, function(req, res){
-    //
-    ///
-    ///
-    ////////New 
+    
              verifyRecaptcha(req.body["g-recaptcha-response"], function(success) {
                 if (success) {
                     var newUser = new User({username: req.body.username, email: req.body.email});
-                //      if(req.body.adminCode === 'secretcode123') {
-                //       newUser.isAdmin = true;
-                // }
                    User.register(newUser, req.body.password, function(err, user){
                        if (err){
                           req.flash("error", err.message);
@@ -45,12 +36,7 @@ router.post("/register", middleware.usernameToLowerCase, function(req, res){
                         req.flash("error", "Something went wrong.");
                         return res.redirect("/");
                 }
-});
-
-    ////////endnew
-    //
-    //
-    
+});   
 });
 
 //show login form

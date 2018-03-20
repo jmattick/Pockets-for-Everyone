@@ -8,8 +8,7 @@ var express     = require("express"),
     methodOverride = require("method-override"),
     Vendor  = require("./models/vendor"),
     Comment     = require('./models/comment'),
-    User        = require("./models/user"),
-    seedDB      = require("./seeds");
+    User        = require("./models/user");
 
 //requiring routes
 var commentRoutes = require("./routes/comments"),
@@ -17,15 +16,13 @@ var commentRoutes = require("./routes/comments"),
     indexRoutes = require("./routes/index"),
     messageRoutes = require("./routes/messages");
 
-//seedDB(); //seed the database
 mongoose.connect(process.env.DATABASEURL)
     .then(() => console.log(`Database connected at ${process.env.DATABASEURL}`))
     .catch(err => console.log(`Database connection error: ${err.message}`));
 
 //c9 
 //"mongodb://localhost/pockets"
-//mLab
-//mongodb://<dbuser>:<dbpassword>@ds117759.mlab.com:17759/pockets
+
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");

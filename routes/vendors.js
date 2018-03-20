@@ -7,12 +7,10 @@ var geocoder = require("geocoder");
 
 //index -show all vendors
 router.get("/", function(req, res){
-    // new stuff
     var perPage = 8;
     var pageQuery = parseInt(req.query.page);
     var pageNumber = pageQuery ? pageQuery : 1;
     var noMatch = null;
-    // end new 
     
     if(req.isAuthenticated() && !req.user.isAdmin){
        //search  logged in
@@ -181,8 +179,6 @@ router.get("/", function(req, res){
                 } else {
                     res.render("vendors/index", {
                         vendors:allVendors, 
-                        // page:"vendors"
-                        
                         current: pageNumber,
                         pages: Math.ceil(count/perPage),
                         noMatch: noMatch,
@@ -216,7 +212,6 @@ router.get("/", function(req, res){
             } else {
                 res.render("vendors/index", {
                     vendors:allVendors, 
-                    // page:"vendors"
                     current: pageNumber,
                     pages: Math.ceil(count/perPage),
                     noMatch: noMatch,
@@ -228,16 +223,6 @@ router.get("/", function(req, res){
         });
         }
     }
-   
-        
-    
-    
-    
-    
-    
-    
- 
-        
 });
 //Create- create new vendor
 router.post("/", middleware.isLoggedIn, middleware.isSafe, function(req, res){
@@ -321,7 +306,7 @@ router.put("/:id",middleware.checkVendorOwnership, middleware.isSafe,function(re
     var location = data.results[0].formatted_address;
     var newData = {name: req.body.vendor.name, image: req.body.vendor.image, url: req.body.vendor.url, description: req.body.vendor.description, price: req.body.vendor.price, p: req.body.vendor.p, location: location, lat: lat, lng: lng, approved: false};
     
-    //find and update the correct vendor./
+    //find and update the correct vendor
    
     Vendor.findByIdAndUpdate(req.params.id, newData, function(err, updatedVendor){
        if(err){
@@ -346,9 +331,8 @@ router.delete("/:id",middleware.checkVendorOwnership, function(req, res){
     })
 });
 
-////
+
 /////REPORT VENDOR ROUTES
-////
 
 //get report form
 router.get("/:id/report", middleware.isLoggedIn, function(req, res){
